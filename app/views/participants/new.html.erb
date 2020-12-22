@@ -1,0 +1,17 @@
+<h2> Create Participant </h2>
+
+<%= form_with(model: @participant, local: true) do |f| %>
+  <p>
+    <%= f.label 'Name' %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label 'Age' %>
+    <%= f.text_field :age %>
+  </p>
+  <p>
+    <%= f.label 'Gender' %>
+    <%= f.text_field :gender %>
+  </p>
+  <%= f.submit 'Create' %>
+<% end %>

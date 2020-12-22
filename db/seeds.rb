@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Participant.create(
+  name: "XYZ",
+  age: 34,
+  gender: "Male"
+)
+
+puts "This is an example project"
