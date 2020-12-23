@@ -1,30 +1,28 @@
-class ParticipantsController < ApplicationController
+# frozen_string_literal: true
 
+class ParticipantsController < ApplicationController
   def index
     @participants = Participant.all
   end
 
   def new
-    @participant = Participant.new
+    @participant ||= Participant.new
   end
 
-  def show
-  end
+  def show; end
 
-  def update
-  end
+  def update; end
 
   def create
-    participant = Participant.new(permit_params)
-    if participant.save
+    @participant = Participant.new(permit_params)
+    if @participant.save
       redirect_to '/participants'
     else
       render :new
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 

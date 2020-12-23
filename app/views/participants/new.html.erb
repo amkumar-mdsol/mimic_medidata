@@ -1,5 +1,11 @@
 <h2> Create Participant </h2>
-
+<% if @participant.errors.present? %>
+  <ul>
+    <% @participant.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_with(model: @participant, local: true) do |f| %>
   <p>
     <%= f.label 'Name' %>

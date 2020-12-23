@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Participants", type: :request do
-
+RSpec.describe 'Participants', type: :request do
 end
