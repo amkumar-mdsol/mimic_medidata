@@ -22,7 +22,10 @@ class ParticipantsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @participant = Participant.find(params[:id])
+    redirect_to participants_path if @participant.destroy
+  end
 
   private
 

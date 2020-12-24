@@ -14,6 +14,8 @@
       <td><%= participant.name %></td>
       <td><%= participant.age %></td>
       <td><%= participant.gender %></td>
+      <td><%= link_to "Edit Participant", edit_participant_path(participant.id) %></td>
+      <td><%= link_to "Delete", participant, method: :delete %></td>
       </ br>
     </tr>
   <% end %>

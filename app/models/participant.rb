@@ -1,5 +1,7 @@
 class Participant < ApplicationRecord
 
+  belongs_to :arm
+
   validates :name, :age, :gender, presence: true
 
   validates :gender, inclusion: { in: ['Male', 'Female'],
@@ -61,3 +63,8 @@ class Participant < ApplicationRecord
     puts "+++++++++++++++++++++++++++++++++"
   end
 end
+
+
+
+
+# A participant will belong to an arm, so for that we will add a reference id in participant,

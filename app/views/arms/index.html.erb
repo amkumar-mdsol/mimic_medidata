@@ -1,0 +1,20 @@
+<h1> Show All the arms </h1>
+
+<%= link_to "Create new arm", new_arm_path %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Limit</th>
+  </tr>
+  <% @arms.each do |arm| %>
+    <tr>
+      <td><%= arm.id %></td>
+      <td><%= arm.name %></td>
+      <td><%= arm.limit %></td>
+      <td><%= link_to "Edit Arm", edit_arm_path(arm.id) %>
+      <td><%= link_to "Delete", method: :delete %>
+      </ br>
+    </tr>
+  <% end %>
+</table>
