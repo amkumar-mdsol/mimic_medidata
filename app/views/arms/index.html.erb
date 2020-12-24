@@ -12,8 +12,9 @@
       <td><%= arm.id %></td>
       <td><%= arm.name %></td>
       <td><%= arm.limit %></td>
-      <td><%= link_to "Edit Arm", edit_arm_path(arm.id) %>
-      <td><%= link_to "Delete", method: :delete %>
+      <td><%= link_to "Edit Arm", edit_arm_path(arm.id) %></td>
+      <td><%= link_to "Delete", method: :delete %></td>
+      <td><%= link_to "Participants", arm_participants_path(arm.id) %></td>
       </ br>
     </tr>
   <% end %>

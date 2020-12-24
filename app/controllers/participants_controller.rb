@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class ParticipantsController < ApplicationController
+  before_action :find_arm, only: [:index, :destroy, :new, :create]
+
   def index
-    @participants = Participant.all
+    @participants = @arm.participants
   end
 
   def new
-    @participant ||= Participant.new
+    @participant ||= @arm.participants.new
   end
 
   def show; end
@@ -14,9 +16,9 @@ class ParticipantsController < ApplicationController
   def update; end
 
   def create
-    @participant = Participant.new(permit_params)
+    @participant = @arm.participants.new(permit_params)
     if @participant.save
-      redirect_to '/participants'
+      redirect_to arm_participants_path(@arm.id)
     else
       render :new
     end
@@ -24,12 +26,16 @@ class ParticipantsController < ApplicationController
 
   def destroy
     @participant = Participant.find(params[:id])
-    redirect_to participants_path if @participant.destroy
+    redirect_to arm_participants_path(@arm.id) if @participant.destroy
   end
 
   private
 
   def permit_params
-    params.require(:participant).permit(:name, :age, :gender)
+    params.require(:participant).permit(:name, :age, :gender, :arm_id)
+  end
+
+  def find_arm
+    @arm = Arm.find_by(id: params[:arm_id])
   end
 end

@@ -6,10 +6,10 @@
     <% end %>
   </ul>
 <% end %>
-<%= form_with(model: @participant, local: true) do |f| %>
+<%= form_for(@participant, url: arm_participants_path(@arm.id)) do |f| %>
   <p>
-    <%= f.label 'Name' %>
-    <%= f.text_field :name %>
+  <%= f.label 'Name' %>
+  <%= f.text_field :name %>
   </p>
   <p>
     <%= f.label 'Age' %>

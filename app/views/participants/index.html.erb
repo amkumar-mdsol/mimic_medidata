@@ -1,12 +1,13 @@
 <h1> Show All the Participants </h1>
-
-<%= link_to "Create new participant", new_participant_path %>
+<%= link_to "Arms_List", arms_path %>
+<%= link_to "Create new participant", new_arm_participant_path(@arm.id) %>
 <table>
   <tr>
     <th>ID</th>
     <th>Name</th>
     <th>Age</th>
     <th>Gender</th>
+    <th>Arm Name</th>
   </tr>
   <% @participants.each do |participant| %>
     <tr>
@@ -14,8 +15,8 @@
       <td><%= participant.name %></td>
       <td><%= participant.age %></td>
       <td><%= participant.gender %></td>
-      <td><%= link_to "Edit Participant", edit_participant_path(participant.id) %></td>
-      <td><%= link_to "Delete", participant, method: :delete %></td>
+      <td><%= participant.arm.name if participant.arm %></td>
+      <td><%= link_to "Edit Participant", edit_arm_participant_path(@arm.id, participant.id) %></td>
       </ br>
     </tr>
   <% end %>
