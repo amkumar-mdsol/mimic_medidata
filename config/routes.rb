@@ -7,4 +7,15 @@ Rails.application.routes.draw do
   resources :arms do
     resources :participants
   end
+
+  get '/process_participant_validity', to: 'participants#process_participant_validity'
+
+  resources :clinics
+  resources :doctors
+
+  resources :sites, only: [:index] do
+    collection do
+      get :load_sites
+    end
+  end
 end

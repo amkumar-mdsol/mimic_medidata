@@ -1,0 +1,24 @@
+<h2> Create Participant </h2>
+<% if @clinic.errors.present? %>
+  <ul>
+    <% @clinic.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for(@clinic, url: clinics_path(@clinic.id)) do |f| %>
+  <p>
+  <%= f.label 'Name' %>
+  <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label 'Location' %>
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <%= f.label 'Doctors' %>
+    <%= f.collection_select :doctor_ids, Doctor.all, :id, :name %>
+  </p>
+  
+  <%= f.submit 'Create' %>
+<% end %>

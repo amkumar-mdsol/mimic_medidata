@@ -1,0 +1,23 @@
+<h1> New Doctor </h1>
+
+<% if @doctor.errors.present? %>
+  <% @doctor.errors.full_messages do |error| %>
+    <h1><%= error %></h1>
+  <% end %>
+<% end %>
+
+<%= form_for(@doctor, url: doctors_path) do |f|%>
+  <p>
+    <%= f.label 'Name' %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label 'Specification' %>
+    <%= f.text_field :specification %>
+  </p>
+  <p>
+    <%= f.label 'Clinics' %>
+    <%= f.collection_select :clinic_ids, Clinic.all, :id, :name, {}, { multiple: true } %>
+  </p>
+  <%= f.submit :create %>
+<% end %>

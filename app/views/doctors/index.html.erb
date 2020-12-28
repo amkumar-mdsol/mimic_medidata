@@ -1,0 +1,22 @@
+<h1> Show All the doctors </h1>
+
+<%= link_to "Create new doctor", new_doctor_path %>
+</br>
+<%= link_to "Clinics", clinics_path %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Specification</th>
+  </tr>
+  <% @doctors.each do |doctor| %>
+    <tr>
+      <td><%= doctor.id %></td>
+      <td><%= doctor.name %></td>
+      <td><%= doctor.specification %></td>
+      <td><%= link_to "Edit doctor", edit_doctor_path(doctor.id) %></td>
+      <td><%= link_to "Delete", method: :delete %></td>
+      </ br>
+    </tr>
+  <% end %>
+</table>

@@ -5,6 +5,10 @@ class ParticipantsController < ApplicationController
 
   def index
     @participants = @arm.participants
+    respond_to do |format|
+      format.html
+      format.json { render :json => @participants }
+    end
   end
 
   def new
@@ -32,7 +36,7 @@ class ParticipantsController < ApplicationController
   private
 
   def permit_params
-    params.require(:participant).permit(:name, :age, :gender, :arm_id)
+    params.require(:participant).permit(:name, :age, :gender)
   end
 
   def find_arm

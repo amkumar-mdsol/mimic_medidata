@@ -1,0 +1,25 @@
+<h1> Site List </h1>
+<%= link_to "Load Sites", load_sites_sites_path %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Site Uuid</th>
+    <th>Location</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Study Uuid</th>
+  </tr>
+  <% @sites.each do |site| %>
+    <tr>
+      <td><%= site.id %></td>
+      <td><%= site.name %></td>
+      <td><%= site.site_uuid %></td>
+      <td><%= site.location %></td>
+      <td><%= site.phone %></td>
+      <td><%= site.email %></td>
+      <td><%= site.study_uuid %></td>
+      </ br>
+    </tr>
+  <% end %>
+</table>

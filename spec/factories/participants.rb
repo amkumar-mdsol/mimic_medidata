@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :participant do
-    name {'XYZ'}
+    sequence :name do |n|
+      "name#{n}"
+    end
     age { 34 }
     gender { ['Male', 'Female'].sample }
   end
