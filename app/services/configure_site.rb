@@ -5,6 +5,7 @@ class ConfigureSite
 
   def initialize
     @response = RestClient.get("#{SITE_SERVICE}/sites/all_sites")
+    binding.pry
   end
 
   def process
@@ -17,7 +18,7 @@ class ConfigureSite
         location: site['location'],
         phone: site['phone'],
         email: site['email'],
-        study_uuid: site['study_uuid']        
+        study_uuid: site['study_uuid'] 
         )
       new_site.save
     end

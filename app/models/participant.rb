@@ -1,6 +1,6 @@
 class Participant < ApplicationRecord
 
-  belongs_to :arm
+  belongs_to :arm, optional: true
 
   has_many :appointments
   has_many :doctors, through: :appointments
